@@ -8,6 +8,11 @@
 -----------------------------------------------------------------------------*/
 const mongoose = require("mongoose");
 
+
+/**
+ * Schema constant.
+ * @type Schema
+ */
 const Schema = mongoose.Schema;
 
 /**
