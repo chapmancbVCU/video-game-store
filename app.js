@@ -1,3 +1,12 @@
+/**
+ * @file Entry point for the application.  Most of content was automatically 
+ * generated.  Sections for database created by author.
+ * @author Chad Chapman
+ */
+
+/*-----------------------------------------------------------------------------
+  IMPORTS
+-----------------------------------------------------------------------------*/
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
