@@ -8,7 +8,7 @@
 -----------------------------------------------------------------------------*/
 const mongoose = require("mongoose");
 
-const Schema = new mongoose.Schema;
+const Schema = mongoose.Schema;
 
 /**
  * Schema for a particular genre
