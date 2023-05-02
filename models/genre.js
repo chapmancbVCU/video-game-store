@@ -15,6 +15,7 @@ const mongoose = require("mongoose");
  */
 const Schema = mongoose.Schema;
 
+
 /**
  * Schema for a particular genre
  * @constructor Genre
@@ -31,6 +32,7 @@ const GenreSchema = new Schema({
 GenreSchema.virtual("url").get(function() {
     return `/inventory/genre/${this._id}`;
 });
+
 
 // Export model
 module.exports = mongoose.model("Genre", GenreSchema);

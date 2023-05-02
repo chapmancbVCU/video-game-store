@@ -15,6 +15,7 @@ const mongoose = require("mongoose");
  */
 const Schema = mongoose.Schema;
 
+
 /**
  * Schema for a concole.
  * @constructor Console
@@ -31,6 +32,7 @@ const ConsoleSchema = new Schema({
     imageFile: { type: String, required: true },
 });
 
+
 /**
  * Virtual for concole's URL.
  * @virtual url
@@ -38,6 +40,7 @@ const ConsoleSchema = new Schema({
 ConsoleSchema.virtual("url").get(function() {
     return `/inventory/console/${this._id}`;
 });
+
 
 // Export model
 module.exports = mongoose.model("Console", ConsoleSchema);
