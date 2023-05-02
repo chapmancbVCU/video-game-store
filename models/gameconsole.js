@@ -34,7 +34,7 @@ const GameConsoleSchema = new Schema({
 
 
 /**
- * Virtual for concole's URL.
+ * Virtual for game console's URL.
  * @virtual url
  */
 GameConsoleSchema.virtual("url").get(function() {
