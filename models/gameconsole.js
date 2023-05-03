@@ -33,7 +33,7 @@ const GameConsoleSchema = new Schema({
     condition: {
         type: String,
         required: true,
-        enum: ["New", "Used"],
+        enum: ["New", "Refurbished", "Used"],
         default: "New",
     },
     status: {
