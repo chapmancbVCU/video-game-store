@@ -30,6 +30,19 @@ const GameConsoleSchema = new Schema({
     },
     description: { type: String, required: true},
     imageFile: { type: String, required: true },
+    condition: {
+        type: String,
+        required: true,
+        enum: ["New", "Used"],
+        default: "New",
+    },
+    status: {
+        type: String,
+        required: true,
+        enum: ["Available", "Sold Out", "Pre-Order"]
+    },
+    price: { type: Double, required: true },
+    upc: { type: Number, required: true },
 });
 
 
