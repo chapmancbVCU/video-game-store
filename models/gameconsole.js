@@ -18,7 +18,7 @@ const Schema = mongoose.Schema;
 
 /**
  * Schema for a console.
- * @constructor Console
+ * @constructor GameConsole
  */
 const GameConsoleSchema = new Schema({
     name: { type: String, required: true },
