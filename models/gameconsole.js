@@ -22,12 +22,7 @@ const Schema = mongoose.Schema;
  */
 const GameConsoleSchema = new Schema({
     name: { type: String, required: true },
-    manufacturer: {
-        type: String,
-        required: true,
-        enum: ["Valve", "Sony", "Microsoft", "Nintendo", "Sega"],
-        default: "Microsoft",
-    },
+    platform: { type: Schema.Types.ObjectID, ref: "platform" },
     description: { type: String, required: true},
     imageFile: { type: String, required: true },
     condition: {
