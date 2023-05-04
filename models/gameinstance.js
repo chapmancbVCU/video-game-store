@@ -22,6 +22,7 @@ const Schema = mongoose.Schema;
  */
 const GameInstanceSchema = new Schema({
     storeNumber: { type: Schema.Types.ObjectID, ref: "StoreLocation" },
+    game: { type: Schema.Types.ObjectID, ref: "Game" },
     comments: { 
         type: String, 
         required: true, 
