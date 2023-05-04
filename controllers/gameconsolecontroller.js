@@ -1,5 +1,5 @@
 /**
- * @file Controller file for game instance.
+ * @file Controller file for game console instance.
  * @author Chad Chapman
  */
 
