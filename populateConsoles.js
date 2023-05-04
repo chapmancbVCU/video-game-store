@@ -23,12 +23,24 @@ async function main() {
     mongoose.connection.close();
 }
 
-async function consoleCreate(name, manufacturer, description, imageFile) {
+async function consoleCreate(
+    name, 
+    manufacturer, 
+    description, 
+    imageFile,
+    condition,
+    status,
+    price,
+    upc) {
     const consoleObj = new Console({ 
         name: name,
         manufacturer: manufacturer,
         description: description,
         imageFile: imageFile,
+        condition: condition,
+        status: status,
+        price: price,
+        upc: upc,
     });
     await consoleObj.save();
     consoles.push(consoleObj);
@@ -38,6 +50,14 @@ async function consoleCreate(name, manufacturer, description, imageFile) {
 async function createConsoles() {
     console.log("Adding console");
     await Promise.all([
-        consoleCreate("Personal Computer", "PC", "The ultimate customizable gaming platform.  Unlike other consoles, you are not stuck with static hardware.  Operating system options are Windows, MacOS, and Linux.", "pc.png"),
+        consoleCreate(
+            "Xbox Series X", 
+            "Microsoft",
+            "Introducing Xbox Series X, the fastest, most powerful Xbox ever. Play thousands of titles from four generations of consoles—all games look and play best on Xbox Series X. At the heart of Series X is the Xbox Velocity Architecture, which pairs a custom SSD with integrated software for faster, streamlined gameplay with significantly reduced load times. Seamlessly move between multiple games in a flash with Quick Resume. Explore rich new worlds and enjoy the action like never before with the unmatched 12 teraflops of raw graphic processing power. Enjoy 4K gaming at up to 120 frames per second, advanced 3D spatial sound, and more.",
+            "pc.png",
+            "New",
+            "Available",
+            459.99,
+            889842640724)
     ]);
 }
