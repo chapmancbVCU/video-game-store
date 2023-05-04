@@ -30,6 +30,7 @@ const GameInstanceSchema = new Schema({
         maxLength: 255 
     },
     reserved: { type: Boolean },
+    platform: { type: Schema.Types.ObjectID, ref: "platform" },
 });
 
 
