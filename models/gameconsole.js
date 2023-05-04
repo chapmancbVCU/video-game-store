@@ -25,8 +25,8 @@ const GameConsoleSchema = new Schema({
     manufacturer: {
         type: String,
         required: true,
-        enum: ["PC", "Sony", "Microsoft", "Nintendo"],
-        default: "PC",
+        enum: ["Valve", "Sony", "Microsoft", "Nintendo", "Sega"],
+        default: "Microsoft",
     },
     description: { type: String, required: true},
     imageFile: { type: String, required: true },
@@ -39,9 +39,10 @@ const GameConsoleSchema = new Schema({
     status: {
         type: String,
         required: true,
-        enum: ["Available", "Sold Out", "Pre-Order"]
+        enum: ["Available", "Sold Out", "Pre-Order"],
+        default: "Available",
     },
-    price: { type: Double, required: true },
+    price: { type: Number, required: true },
     upc: { type: Number, required: true },
 });
 
