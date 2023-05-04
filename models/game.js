@@ -22,7 +22,7 @@ const Schema = mongoose.Schema;
  */
 const GameSchema = new Schema({
     title: { type: String, required: true },
-    gamingConsole: [{ type: Schema.Types.ObjectID, ref: "GameConsole" }],
+    gamingConsole: [{ type: Schema.Types.ObjectID, ref: "consoleinstance" }],
     description: { type: String, required: true },
     genre: [{ type: Schema.Types.ObjectID, ref: "Genre" }],
     imageFile: { type: String, required: true },

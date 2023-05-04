@@ -4,7 +4,7 @@ const userArgs = process.argv.slice(2);
  * database.
  * @author Chad Chapman
  */
-const Console = require("./models/gameconsole");
+const Console = require("./models/consoleinstance");
 const consoles = [];
 
 const mongoose = require("mongoose");
