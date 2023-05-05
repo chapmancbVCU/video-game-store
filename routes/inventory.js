@@ -26,6 +26,37 @@ const storelocation_controller = require(
 
 
 /*-----------------------------------------------------------------------------
+  GAME ROUTES
+-----------------------------------------------------------------------------*/
+// GET inventory homepage.
+router.get("/", game_controller.index);
+
+// GET request for creating a game. NOTE This must come before routes that display game (uses id).
+router.get("/game/create", game_controller.game_create_get);
+
+// POST request for creating game.
+router.post("/game/create", game_controller.game_create_post);
+
+// GET request to delete game.
+router.get("/game/:id/delete", game_controller.game_delete_get);
+
+// POST request to delete game.
+router.post("/game/:id/delete", game_controller.game_delete_post);
+
+// GET request to update game.
+router.get("/game/:id/update", game_controller.game_update_get);
+
+// POST request to update game.
+router.post("/game/:id/update", game_controller.game_update_post);
+
+// GET request for one game.
+router.get("/game/:id", game_controller.game_detail);
+
+// GET request for list of all game items.
+router.get("/games", game_controller.game_list);
+
+
+/*-----------------------------------------------------------------------------
   ACCESSORIES ROUTES
 -----------------------------------------------------------------------------*/
 // GET request for creating a accessories. NOTE This must come before routes that display accessories (uses id).
@@ -109,35 +140,6 @@ router.get("/gameconsoleinstance/:id", gameconsoleinstance_controller.gameconsol
 router.get("/gameconsoleinstances", gameconsoleinstance_controller.gameconsoleinstance_list);
 
 
-/*-----------------------------------------------------------------------------
-  GAME ROUTES
------------------------------------------------------------------------------*/
-// GET inventory homepage.
-router.get("/", game_controller.index);
-
-// GET request for creating a game. NOTE This must come before routes that display game (uses id).
-router.get("/game/create", game_controller.game_create_get);
-
-// POST request for creating game.
-router.post("/game/create", game_controller.game_create_post);
-
-// GET request to delete game.
-router.get("/game/:id/delete", game_controller.game_delete_get);
-
-// POST request to delete game.
-router.post("/game/:id/delete", game_controller.game_delete_post);
-
-// GET request to update game.
-router.get("/game/:id/update", game_controller.game_update_get);
-
-// POST request to update game.
-router.post("/game/:id/update", game_controller.game_update_post);
-
-// GET request for one game.
-router.get("/game/:id", game_controller.game_detail);
-
-// GET request for list of all game items.
-router.get("/games", game_controller.game_list);
 
 
 /*-----------------------------------------------------------------------------
