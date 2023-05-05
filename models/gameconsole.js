@@ -23,6 +23,7 @@ const Schema = mongoose.Schema;
 const GameConsoleSchema = new Schema({
     name: { type: String, required: true },
     platform: { type: Schema.Types.ObjectID, ref: "platform" },
+    accessories: [{ type: Schema.Types.ObjectID, ref: "accessories"}],
     description: { type: String, required: true},
     imageFile: { type: String, required: true },
     condition: {
