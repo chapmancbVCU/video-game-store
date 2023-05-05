@@ -28,7 +28,7 @@ const AccessoriesSchema = new Schema({
  * Virtual for accessories's URL.
  * @virtual url
  */
-GameSchema.virtual("url").get(function() {
+AccessoriesSchema.virtual("url").get(function() {
     return `/inventory/accessories/${this._id}`;
 });
 

@@ -7,7 +7,7 @@
   IMPORTS
 -----------------------------------------------------------------------------*/
 const Accessories = require("../models/accessories");
-const asyncHandler = require('express-async-handler')
+const asyncHandler = require('express-async-handler');
 
 
 /**
