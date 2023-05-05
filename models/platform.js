@@ -16,6 +16,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
+/**
+ * Schema for platform.
+ * @constructor Platform
+ */
 const PlatformSchema = new Schema({
     name: { type: String, required: true },
     manufacturer: {
