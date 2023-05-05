@@ -45,7 +45,7 @@ const GameSchema = new Schema({
         enum: ["Available", "Sold Out", "Pre-Order"]
     },
     releaseDate: { type: Date },
-    price: { type: Double, required: true },
+    price: { type: Number, required: true },
     upc: { type: Number, required: true },
 });
 
