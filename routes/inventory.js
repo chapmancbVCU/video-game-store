@@ -14,8 +14,8 @@ const router = express.Router();
 const accessories_controller = require("../controllers/accessoriescontroller");
 const consoleinstance_controller = require(
     "../controllers/consoleinstancecontroller");
-const gameconsoleinstance_controller = require(
-    "../controllers/gameinstancecontroller");
+const gameconsole_controller = require(
+    "../controllers/gameconsolecontroller");
 const game_controller = require("../controllers/gamecontroller");
 const gameinstance_controller = require(
     "../controllers/gameinstancecontroller");
@@ -115,29 +115,29 @@ router.get("/consoleinstances", consoleinstance_controller.consoleinstance_list)
 /*-----------------------------------------------------------------------------
   GAME CONSOLE ROUTES
 -----------------------------------------------------------------------------*/
-// GET request for creating a gameconsoleinstance. NOTE This must come before routes that display gameconsoleinstance (uses id).
-router.get("/gameconsoleinstance/create", gameconsoleinstance_controller.gameconsoleinstance_create_get);
+// GET request for creating a gameconsole. NOTE This must come before routes that display gameconsole (uses id).
+router.get("/gameconsole/create", gameconsole_controller.gameconsole_create_get);
 
-// POST request for creating gameconsoleinstance.
-router.post("/gameconsoleinstance/create", gameconsoleinstance_controller.gameconsoleinstance_create_post);
+// POST request for creating gameconsole.
+router.post("/gameconsole/create", gameconsole_controller.gameconsole_create_post);
 
-// GET request to delete gameconsoleinstance.
-router.get("/gameconsoleinstance/:id/delete", gameconsoleinstance_controller.gameconsoleinstance_delete_get);
+// GET request to delete gameconsole.
+router.get("/gameconsole/:id/delete", gameconsole_controller.gameconsole_delete_get);
 
-// POST request to delete gameconsoleinstance.
-router.post("/gameconsoleinstance/:id/delete", gameconsoleinstance_controller.gameconsoleinstance_delete_post);
+// POST request to delete gameconsole.
+router.post("/gameconsole/:id/delete", gameconsole_controller.gameconsole_delete_post);
 
-// GET request to update gameconsoleinstance.
-router.get("/gameconsoleinstance/:id/update", gameconsoleinstance_controller.gameconsoleinstance_update_get);
+// GET request to update gameconsole.
+router.get("/gameconsole/:id/update", gameconsole_controller.gameconsole_update_get);
 
-// POST request to update gameconsoleinstance.
-router.post("/gameconsoleinstance/:id/update", gameconsoleinstance_controller.gameconsoleinstance_update_post);
+// POST request to update gameconsole.
+router.post("/gameconsole/:id/update", gameconsole_controller.gameconsole_update_post);
 
-// GET request for one gameconsoleinstance.
-router.get("/gameconsoleinstance/:id", gameconsoleinstance_controller.gameconsoleinstance_detail);
+// GET request for one gameconsole.
+router.get("/gameconsole/:id", gameconsole_controller.gameconsole_detail);
 
-// GET request for list of all gameconsoleinstance items.
-router.get("/gameconsoleinstances", gameconsoleinstance_controller.gameconsoleinstance_list);
+// GET request for list of all gameconsole items.
+router.get("/gameconsole", gameconsole_controller.gameconsole_list);
 
 
 
@@ -252,3 +252,6 @@ router.get("/storelocation/:id", storelocation_controller.storelocation_detail);
 
 // GET request for list of all storelocation items.
 router.get("/storelocations", storelocation_controller.storelocation_list);
+
+
+module.exports = router;
