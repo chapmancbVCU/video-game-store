@@ -53,7 +53,7 @@ router.post("/game/:id/update", game_controller.game_update_post);
 router.get("/game/:id", game_controller.game_detail);
 
 // GET request for list of all game items.
-router.get("/games", game_controller.game_list);
+router.get("/game", game_controller.game_list);
 
 
 /*-----------------------------------------------------------------------------
@@ -81,7 +81,7 @@ router.post("/accessories/:id/update", accessories_controller.accessories_update
 router.get("/accessories/:id", accessories_controller.accessories_detail);
 
 // GET request for list of all accessories items.
-router.get("/accessoriess", accessories_controller.accessories_list);
+router.get("/accessories", accessories_controller.accessories_list);
 
 
 /*-----------------------------------------------------------------------------
@@ -109,7 +109,7 @@ router.post("/consoleinstance/:id/update", consoleinstance_controller.consoleins
 router.get("/consoleinstance/:id", consoleinstance_controller.consoleinstance_detail);
 
 // GET request for list of all consoleinstance items.
-router.get("/consoleinstances", consoleinstance_controller.consoleinstance_list);
+router.get("/consoleinstance", consoleinstance_controller.consoleinstance_list);
 
 
 /*-----------------------------------------------------------------------------
@@ -167,7 +167,7 @@ router.post("/gameinstance/:id/update", gameinstance_controller.gameinstance_upd
 router.get("/gameinstance/:id", gameinstance_controller.gameinstance_detail);
 
 // GET request for list of all gameinstance items.
-router.get("/gameinstances", gameinstance_controller.gameinstance_list);
+router.get("/gameinstance", gameinstance_controller.gameinstance_list);
 
 
 /*-----------------------------------------------------------------------------
@@ -195,7 +195,7 @@ router.post("/genre/:id/update", genre_controller.genre_update_post);
 router.get("/genre/:id", genre_controller.genre_detail);
 
 // GET request for list of all Genre.
-router.get("/genres", genre_controller.genre_list);
+router.get("/genre", genre_controller.genre_list);
 
 
 /*-----------------------------------------------------------------------------
@@ -223,7 +223,7 @@ router.post("/platform/:id/update", platform_controller.platform_update_post);
 router.get("/platform/:id", platform_controller.platform_detail);
 
 // GET request for list of all platform items.
-router.get("/platforms", platform_controller.platform_list);
+router.get("/platform", platform_controller.platform_list);
 
 
 /*-----------------------------------------------------------------------------
@@ -251,7 +251,7 @@ router.post("/storelocation/:id/update", storelocation_controller.storelocation_
 router.get("/storelocation/:id", storelocation_controller.storelocation_detail);
 
 // GET request for list of all storelocation items.
-router.get("/storelocations", storelocation_controller.storelocation_list);
+router.get("/storelocation", storelocation_controller.storelocation_list);
 
 
 module.exports = router;
