@@ -7,6 +7,10 @@
   IMPORTS
 -----------------------------------------------------------------------------*/
 const Game = require("../models/game");
+const Accessories = require("../models/accessories");
+const GameConsole = require("../models/gameconsole");
+const Genre = require("../models/genre");
+const { body, validationResult } = require("express-validator");
 const asyncHandler = require('express-async-handler')
 
 
@@ -14,7 +18,26 @@ const asyncHandler = require('express-async-handler')
  * @property Home page
  */
 exports.index = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Site Home Page");
+    // Get details of games, consoles, accesories, and genres.
+    const [
+        numGames,
+        numAccessories,
+        numGameConsoles,
+        numGenres,
+    ] = await Promise.all([
+      Game.countDocuments({}).exec(),
+      Accessories.countDocuments({}).exec(),
+      GameConsole.countDocuments({}).exec(),
+      Genre.countDocuments({}).exec(),
+  ]);
+
+  res.render("index", {
+      title: "The Game Store",
+      game_count: numGames,
+      accessories_count: numAccessories,
+      game_consoles_count: numGameConsoles,
+      genre_count: numGenres,
+  });
 });
 
 
