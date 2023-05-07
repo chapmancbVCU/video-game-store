@@ -25,7 +25,7 @@ async function main() {
 }
 
 
-async function platformCreate(name) {
+async function platformCreate(name, manufacturer) {
     const platform = new Platform({ 
         name: name,
         manufacturer: manufacturer,
