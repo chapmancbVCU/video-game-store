@@ -4,7 +4,7 @@ const userArgs = process.argv.slice(2);
  * database.
  * @author Chad Chapman
  */
-const Genre = require("./models/genre");
+const Genre = require("../models/genre");
 const genres = [];
 
 const mongoose = require("mongoose");
