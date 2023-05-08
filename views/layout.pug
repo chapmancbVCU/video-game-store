@@ -19,6 +19,28 @@ html(lang='en')
             a(href='/inventory/game' class='nav-link') All Games
           li(class='nav-item')
             a(href='/inventory/gameconsole' class='nav-link') All Consoles
+          li(class='nav-item')
+            a(href='/inventory/accessories' class='nav-link') All Accessories
+          li(class='nav-item dropdown')
+            a(href='#' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') Employee View
+            ul(class='dropdown-menu navbar-dark bg-dark' aria-labelledby='navbarDropdownMenuLink')
+              li(class='drowdown-item')
+                a(href='/inventory/accessories/create'  class='nav-link') Add New Accessory
+              li(class='drowdown-item')
+                a(href='/inventory/consoleinstance/create' class='nav-link') Add Console to Inventory
+              li(class='drowdown-item')
+                a(href='/inventory/game/create' class='nav-link') Add New Game Title
+              li(class='drowdown-item')
+                a(href='/inventory/gameconsole/create' class='nav-link') Add Gaming Console 
+              li(class='drowdown-item')
+                a(href='/inventory/gameinstance/create' class='nav-link') Add New Game Copy
+              li(class='drowdown-item')
+                a(href='/inventory/genre/create' class='nav-link') Add New Genre
+              li(class='drowdown-item')
+                a(href='/inventory/platform/create' class='nav-link') Add New Gaming Platform 
+              li(class='drowdown-item')
+                a(href='/inventory/storelocation/create' class='nav-link') Add New Store Location
+              
     div(class='col-sm-10')
       block content
 
