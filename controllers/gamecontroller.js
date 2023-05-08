@@ -78,9 +78,100 @@ exports.game_create_get = asyncHandler(async (req, res, next) => {
 /**
  * @property Handle game create on POST.
  */
-exports.game_create_post = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: game create POST");
-});
+exports.game_create_post = [
+    // Convert the genre to an array.
+    (req, res, next) => {
+        if (!(req.body.genre instanceof Array)) {
+            if (typeof req.body.genre === "undefined") {
+                req.body.genre = []
+            } else {
+                req.body.genre = new Array(req.body.genre);
+            }
+        }
+        next();
+    },
+
+    // Convert the platform to an array.
+    (req, res, next) => {
+        if (!(req.body.platform instanceof Array)) {
+            if (typeof req.body.platform === "undefined") {
+                req.body.platform = []
+            } else {
+                req.body.platform = new Array(req.body.platform);
+            }
+        }
+        next();
+    },
+
+    // Validate and sanitize fields.
+    body("title", "Title must not be empty.")
+        .trim()
+        .isLength({ min: 1})
+        .escape(),
+    body("platform.*").escape(),
+    body("description", "Description must not be empty.")
+        .trim()
+        .isLength({ min: 1})
+        .escape(),
+    body("imageFile", "Must select an image").escape(),
+    body("rating").escape(),
+    body("publisher", "Publisher must not be empty."),
+    body("condition").escape(),
+    body("status").escape(),
+    body("release_date", "Invalid Date")
+        .optional({ checkFalsy: true })
+        .isISO8601()
+        .toDate(),
+    body("price", "Price must not be empty")
+        .trim()
+        .isLength({ min: 1 })
+        .escape(),
+    body("upc", "UPC must not be empty")
+        .trim()
+        .isLength({ min: 12 })
+        .escape(),
+
+    // Process request after validation and sanitation.
+    asyncHandler(async (req, res, next) => {
+        // Extract the validation errors from a request.
+        const errors = validation(req);
+
+        // Create a Game Object.
+        const game = new Game({
+            title: req.body.title,
+            platform: req.body.platform,
+            description: req.body.description,
+            imageFile: req.body.imageFile,
+            rating: req.body.rating,
+            publisher: req.body.publisher,
+            condition: req.body.condition,
+            status: req.body.status,
+            release_date: req.body.release_date,
+            price: req.body.price,
+            upc: req.body.upc,
+        });
+
+        if (!errors.isEmpty()) {
+            /* There are errors.  Render form again with sanitized values and 
+              error messages. */
+              const [allPlatforms, allGenres] = await Promise.all([
+                Platform.find().exec(),
+                Genre.find().exec(),
+            ]);
+        
+            res.render("game_form", {
+                title: "Add New Game",
+                platforms: allPlatforms,
+                genres: allGenres,
+                errors: errors.array(),
+            });
+        } else {
+            // Data from form is valid.  Save game.
+            await game.save();
+            res.redirect(game.url);
+        }
+    })
+];
 
 
 /**
