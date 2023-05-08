@@ -10,6 +10,7 @@ const Game = require("../models/game");
 const Accessories = require("../models/accessories");
 const GameConsole = require("../models/gameconsole");
 const Genre = require("../models/genre");
+const Platform = require("../models/platform");
 const { body, validationResult } = require("express-validator");
 const asyncHandler = require('express-async-handler')
 
@@ -61,7 +62,16 @@ exports.game_detail = asyncHandler(async (req, res, next) => {
  * @property Display game create form on GET.
  */
 exports.game_create_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: game create GET");
+    const [allPlatforms, allGenres] = await Promise.all([
+        Platform.find().exec(),
+        Genre.find().exec(),
+    ]);
+
+    res.render("game_form", {
+        title: "Add New Game",
+        platforms: allPlatforms,
+        genres: allGenres,
+    });
 });
 
 
