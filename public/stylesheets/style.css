@@ -1,5 +1,12 @@
-
 * {
   padding: 0;
   margin: 0;
+}
+
+.content {
+  margin: 25px;  
+}
+
+.home-page-list {
+  margin-left: 50px;
 }
