@@ -113,6 +113,7 @@ exports.game_create_post = [
         .trim()
         .isLength({ min: 1})
         .escape(),
+    body("genre.*").escape(),
     body("imageFile", "Must select an image").escape(),
     body("rating").escape(),
     body("publisher", "Publisher must not be empty."),
