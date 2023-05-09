@@ -159,6 +159,19 @@ exports.game_create_post = [
                 Genre.find().exec(),
             ]);
         
+            // Mark our selected platforms as checked.
+            for (const platform of allPlatforms) {
+                if (game.platform.indexOf(platform._id) > -1) {
+                    platform.checked = 'true';
+                }
+            }
+
+            // Mark our selected genres as checked.
+            for (const genre of allGenres) {
+                if (game.genre.indexOf(genre._id)) {
+                    genre.checked = 'true';
+                }
+            }
             res.render("game_form", {
                 title: "Add New Game",
                 platforms: allPlatforms,
