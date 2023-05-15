@@ -42,7 +42,8 @@ const GameSchema = new Schema({
     status: {
         type: String,
         required: true,
-        enum: ["Available", "Sold Out", "Pre-Order"]
+        enum: ["Available", "Sold Out", "Pre-Order"],
+        default: "Available"
     },
     releaseDate: { type: Date },
     price: { type: Number, required: true },
