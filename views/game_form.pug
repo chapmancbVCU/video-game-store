@@ -1,0 +1,72 @@
+extends layout 
+
+block content 
+
+  h1= title
+
+  form(method='POST' action='')
+    div.form-group
+      label(for='title') Title: 
+      input#title.form-control(type='text' placeholder='Name of game' name='title' required='true' value=(undefined===game ? '' : game.title))
+
+    div.form-group
+      label(for='description') Description: 
+      textarea#description.form-control(placeholder='Enter game description' rows="5" name='description' required='true') #{undefined===game ? '' : game.description}
+
+    div.form-group 
+      label('for'='publisher') Publisher 
+      input#publisher.form-control(type='text' placeholder='Square, Electronic Arts, etc.' name='publisher' required='true' value=(undefined===publisher ? '' : game.publisher))
+    div.form-group
+      label(for='platform') Gaming Platform
+      div 
+        for platform in platforms 
+          div(style='display: inline; padding-right:20px;')
+            input.checkbox-input(type='checkbox', name='platform', id=platform._id, value=platform._id, checked=platform.checked)
+            label(for=platform._id style='padding-left:5px;') #{platform.name}
+            
+    div.form-group 
+      label(for='genre') Genre 
+      div 
+        for genre in genres 
+          div(style='display: inline; padding-right:20px;')
+            input.checkbox-input(type='checkbox', name='platform', id=genre._id, value=genre._id, checked=genre.checked)
+            label(for=genre._id style='padding-left:5px;') #{genre.name}
+
+    div.form-group 
+      label(for='rating') Rating: 
+      select#rating.form-control(type='select' placeholder='Select a rating category' name='rating' required='true')
+        option(value='E') Everyone 
+        option(value='E10') Everyone 10+
+        option(value='T') Teen 
+        option(value='M') Mature 17+
+        option(value='A') Adults Only 18+
+        option(value='RP') Rating Pending 
+        option(value='RP17') Rating Pending Likely Mature 17+
+
+    div.form-group
+      label(for='condition') Condition: 
+      select#condition.form-control(type='select' placeholder='Select new or used' name='condition' required='true')
+        option(value='New') New 
+        option(value='Used') Used
+
+    div.form-group
+      label(for='status') Status 
+      select#condition.form-control(type='select' placeholder='Select availability status' name='status' required='true')
+        option(value='Available') Available 
+        option(value='Sold Out') Sold Out 
+        option(value='Pre-Order') Pre-Order
+
+    div.form-group
+      label(for='release_date') Release Date 
+      input#release_date.form-control(type='date' value=(undifined===game ? '' : game.release_date))
+
+    div.form-group 
+      label(for='price') Price 
+      input#price.form-control(type='text' placeholder='Enter price' name='title' required='true' value=(undefined===game ? '' : game.price))
+
+    div.form-group 
+      label(for='upc') UPC
+      input#upc.form-control(type='text' placeholder='Enter price' name='title' required='true' value=(undefined===game ? '' : game.upc))
+
+
+
