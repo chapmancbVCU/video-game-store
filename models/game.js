@@ -25,7 +25,7 @@ const GameSchema = new Schema({
     platform: [{ type: Schema.Types.ObjectID, ref: "platform" }],
     description: { type: String, required: true },
     genre: [{ type: Schema.Types.ObjectID, ref: "Genre" }],
-    imageFile: { type: String, required: true },
+    imageFile: { type: String },
     rating: {
         type: String,
         required: true,
