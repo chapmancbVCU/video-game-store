@@ -3,12 +3,11 @@ extends layout
 block content 
 
   h1= title
-
-  form(method='POST' action='' enctype='multipart/form-data')
+  
+  form(method='POST' action='')
     div.form-group
       label(for='title') Title: 
-      input#title.form-control(type='text' placeholder='Name of game' name='title' required='true' value=(undefined===game ? '' : game.title))
-
+      input#title.form-control(type='text', placeholder='Name of game' name='title' required='true' value=(undefined===game ? '' : game.title) )
     div.form-group
       label(for='description') Description: 
       textarea#description.form-control(placeholder='Enter game description' rows="5" name='description' required='true') #{undefined===game ? '' : game.description}
@@ -62,14 +61,13 @@ block content
 
     div.form-group 
       label(for='price') Price 
-      input#price.form-control(type='text' placeholder='Enter price' name='title' required='true' value=(undefined===game ? '' : game.price))
+      input#price.form-control(type='number' placeholder='Enter price' name='price' required='true' value=(undefined===game ? '' : game.price))
 
     div.form-group 
       label(for='upc') UPC
-      input#upc.form-control(type='text' placeholder='Enter price' name='title' required='true' value=(undefined===game ? '' : game.upc))
+      input#upc.form-control(type='number' placeholder='Enter price' name='upc' required='true' value=(undefined===game ? '' : game.upc))
 
-    div.form-group
-      input(type='file', name='imageFile')
+    
 
     button.btn.btn-primary(type='submit') Submit 
 
@@ -77,5 +75,7 @@ block content
       ul 
         for error in errors 
           li!= error.msg
+    
+
 
 
