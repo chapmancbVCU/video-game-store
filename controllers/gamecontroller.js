@@ -146,6 +146,7 @@ exports.game_create_post = [
         const game = new Game({
             title: req.body.title,
             platform: req.body.platform,
+            genre: req.body.genre,
             description: req.body.description,
            // imageFile: req.body.imageFile,
             rating: req.body.rating,

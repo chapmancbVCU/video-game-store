@@ -28,7 +28,7 @@ block content
       div 
         for genre in genres 
           div(style='display: inline; padding-right:20px;')
-            input.checkbox-input(type='checkbox', name='platform', id=genre._id, value=genre._id, checked=genre.checked)
+            input.checkbox-input(type='checkbox', name='genre', id=genre._id, value=genre._id, checked=genre.checked)
             label(for=genre._id style='padding-left:5px;') #{genre.name}
 
     div.form-group 
