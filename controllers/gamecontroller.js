@@ -79,18 +79,6 @@ exports.game_create_get = asyncHandler(async (req, res, next) => {
  * @property Handle game create on POST.
  */
 exports.game_create_post = [
-    // Convert the genre to an array.
-    (req, res, next) => {
-        if (!(req.body.genre instanceof Array)) {
-            if (typeof req.body.genre === "undefined") {
-                req.body.genre = []
-            } else {
-                req.body.genre = new Array(req.body.genre);
-            }
-        }
-        next();
-    },
-
     // Convert the platform to an array.
     (req, res, next) => {
         if (!(req.body.platform instanceof Array)) {
@@ -103,20 +91,35 @@ exports.game_create_post = [
         next();
     },
 
+    // Convert the genre to an array.
+    (req, res, next) => {
+        if (!(req.body.genre instanceof Array)) {
+            if (typeof req.body.genre === "undefined") {
+                req.body.genre = []
+            } else {
+                req.body.genre = new Array(req.body.genre);
+            }
+        }
+        next();
+    },
+
     // Validate and sanitize fields.
     body("title", "Title must not be empty.")
         .trim()
-        .isLength({ min: 1})
+        .isLength({ min: 1 })
         .escape(),
-    body("platform.*").escape(),
     body("description", "Description must not be empty.")
         .trim()
-        .isLength({ min: 1})
+        .isLength({ min: 1 })
         .escape(),
+    body("publisher", "Publisher must not be empty.")
+        .trim()
+        .isLength({ min: 1 })
+        .escape(),
+    body("platform.*").escape(),
     body("genre.*").escape(),
-    body("imageFile", "Must select an image").escape(),
+    //body("imageFile", "Must select an image").escape(),
     body("rating").escape(),
-    body("publisher", "Publisher must not be empty."),
     body("condition").escape(),
     body("status").escape(),
     body("release_date", "Invalid Date")
@@ -124,25 +127,27 @@ exports.game_create_post = [
         .isISO8601()
         .toDate(),
     body("price", "Price must not be empty")
-        .trim()
+        .optional({ checkFalsy: true })
+        .isDecimal()
         .isLength({ min: 1 })
         .escape(),
     body("upc", "UPC must not be empty")
-        .trim()
+        .optional({ checkFalsy: true })
+        .isNumeric()
         .isLength({ min: 12 })
         .escape(),
 
     // Process request after validation and sanitation.
     asyncHandler(async (req, res, next) => {
         // Extract the validation errors from a request.
-        const errors = validation(req);
+        const errors = validationResult(req);
 
         // Create a Game Object.
         const game = new Game({
             title: req.body.title,
             platform: req.body.platform,
             description: req.body.description,
-            imageFile: req.body.imageFile,
+           // imageFile: req.body.imageFile,
             rating: req.body.rating,
             publisher: req.body.publisher,
             condition: req.body.condition,
@@ -169,7 +174,7 @@ exports.game_create_post = [
 
             // Mark our selected genres as checked.
             for (const genre of allGenres) {
-                if (game.genre.indexOf(genre._id)) {
+                if (game.genre.indexOf(genre._id) > -1) {
                     genre.checked = 'true';
                 }
             }
