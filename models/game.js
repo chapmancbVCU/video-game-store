@@ -46,7 +46,7 @@ const GameSchema = new Schema({
         default: "Available"
     },
     releaseDate: { type: Date },
-    price: { type: Number, required: true },
+    price: { type: String, required: true },
     upc: { type: Number, required: true },
 });
 

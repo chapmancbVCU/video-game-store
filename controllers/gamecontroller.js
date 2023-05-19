@@ -127,9 +127,8 @@ exports.game_create_post = [
         .isISO8601()
         .toDate(),
     body("price", "Price must not be empty")
-        .optional({ checkFalsy: true })
-        .isDecimal()
-        .isLength({ min: 1 })
+        .trim()
+        .isLength({ min: 1, max: 8 })
         .escape(),
     body("upc", "UPC must not be empty")
         .optional({ checkFalsy: true })
