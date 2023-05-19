@@ -1,3 +1,4 @@
+// Original author's original version at https://codepen.io/559wade/pen/LRzEjj
 // Jquery Dependency
 
 $("input[data-type='currency']").on({
