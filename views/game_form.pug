@@ -4,7 +4,7 @@ block content
 
   h1= title
   
-  form(method='POST' action='')
+  form(method='POST' action='' enctype="multipart/form-data")
     div.form-group
       label(for='title') Title: 
       input#title.form-control(type='text', placeholder='Name of game' name='title' required='true' value=(undefined===game ? '' : game.title) )
@@ -67,7 +67,9 @@ block content
       label(for='upc') UPC
       input#upc.form-control(type='number' placeholder='Enter UPC' name='upc' required='true' value=(undefined===game ? '' : game.upc))
 
-    
+    div.form-group 
+      label(for='imageFile') Upload Cover Art
+      input#imageFile.form-control(type='file' name='imageFile' value='Upload Image')
 
     button.btn.btn-primary(type='submit') Submit 
 
