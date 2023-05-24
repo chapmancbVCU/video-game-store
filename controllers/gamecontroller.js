@@ -105,7 +105,7 @@ exports.game_create_post = [
         next();
     },
 
-    /*(req, res, next) => {
+    (req, res, next) => {
         
         try {
             let storage = multer.diskStorage({
@@ -129,8 +129,10 @@ exports.game_create_post = [
         } catch (error) {
 
         }
+        const obj = Object.assign({}, req.body);
+        console.log(obj)
         next();
-    },*/
+    },
     // Validate and sanitize fields.
     body("title", "Title must not be empty.")
         .trim()
@@ -168,8 +170,7 @@ exports.game_create_post = [
     asyncHandler(async (req, res, next) => {
         // Extract the validation errors from a request.
         const errors = validationResult(req);
-        let fileName = 'foo'
-        try {
+        /*try {
             let storage = multer.diskStorage({
                 destination: (req, file, cb) => {
                     cb(null, 'public/images/uploads');
@@ -190,9 +191,7 @@ exports.game_create_post = [
             });
         } catch (error) {
 
-        }
-
-        console.log("filename: " + fileName)
+        }*/
         // Create a Game Object.
         const game = new Game({
             title: req.body.title,

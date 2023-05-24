@@ -16,6 +16,7 @@ const serverUrl = require("./serverURL");
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const inventoryRouter = require('./routes/inventory');
+const bodyParser = require('body-parser');
 const app = express();
 
 // Set up mongoose connection
@@ -38,6 +39,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Configurations for "body-parser"
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/inventory', inventoryRouter);
