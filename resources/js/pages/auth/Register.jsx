@@ -49,13 +49,6 @@ function Register({user, errors}) {
                         inputAttrs={{className: 'form-control input-sm', placeholder: 'joe@example.com'}}
                         divAttrs={{className: 'form-group mb-3'}}
                     />
-                    <Forms.RichText
-                        label="Description"
-                        name="description"
-                        value={user.description || ""}
-                        inputAttrs={{ placeholder: 'Describe yourself here...' }}
-                        divAttrs={{ className: 'form-group mb-3' }}
-                    />
                     <Forms.Input 
                         type="file"
                         label="Upload Profile Image (Optional"

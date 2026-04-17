@@ -21,7 +21,6 @@ class MDT20240805010157CreateUsersTable extends Migration {
             $table->string('fname', 150);
             $table->string('lname', 150);
             $table->text('acl');
-            $table->text('description')->nullable();
             $table->tinyInteger('reset_password')->default(0);
             $table->tinyInteger('inactive')->default(0);
             $table->integer('login_attempts')->default(0);
