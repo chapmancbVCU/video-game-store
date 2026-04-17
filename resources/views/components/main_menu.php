@@ -1,7 +1,6 @@
 <?php
 use Core\Helper;
 use Core\Router;
-$profileImage = Helper::getProfileImage();
 $menu = Router::getMenu('menu_acl');
 $userMenu = Router::getMenu('user_menu');
 ?>
