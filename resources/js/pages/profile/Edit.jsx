@@ -1,7 +1,6 @@
 import React from "react";
 import Forms from "@chappy/components/Forms";
 import route from "@chappy/utils/route";
-import ProfileImageSorter from '@/components/ProfileImageSorter';
 import documentTitle from '@chappy/utils/documentTitle';
 
 /**
@@ -13,7 +12,7 @@ import documentTitle from '@chappy/utils/documentTitle';
  * @param {InputProps} param0 
  * @returns {JSX.Element} The edit profile view component.
  */
-function Edit({user, errors, profileImages}) {
+function Edit({user, errors }) {
     documentTitle(`Edit Details for ${user.username}`);
 
     return (
@@ -47,7 +46,6 @@ function Edit({user, errors, profileImages}) {
                         inputAttrs={{className: 'form-control input-sm', placeholder: 'joe@example.com'}}
                         divAttrs={{className: 'form-group mb-3'}}
                     />
-                    <ProfileImageSorter initialImages={profileImages} deleteEndpoint="/profile/deleteImage" />
                     <div className="col-md-12 text-end">
                         <a href={route('profile')} className="btn btn-default">Cancel</a>
                         <Forms.SubmitTag label={"Submit"} inputAttrs={{className: 'btn btn-primary'}}/>

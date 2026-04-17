@@ -9,20 +9,13 @@ import documentTitle from "@chappy/utils/documentTitle";
  * @param {string} param0 Props for user and current profile image URL.
  * @returns {JSX.Element} The component for the profile index view.
  */
-function Index({ user, profileImage }) {
+function Index({ user }) {
     documentTitle(`Profile Details for ${user.username}`);
 
     return (
         <>
             <h1 className="text-center">Profile Details for {user.username}</h1>
             <div className="col align-items-center justify-content-center mx-auto my-3 w-50">
-                {profileImage && (
-                    <img src={asset(profileImage.url)}
-                        className="img-thumbnail mx-auto my-5 d-block w-50 rounded border border-primary shadow-lg"
-                        loading="lazy"
-                    />
-                )}
-
                 <table className="table table-striped  table-bordered table-hover bg-light my-5">
                     <tbody>
                         <tr>

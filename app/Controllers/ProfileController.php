@@ -2,7 +2,6 @@
 namespace App\Controllers;
 use Core\Controller;
 use App\Models\Users;
-use Core\Models\ProfileImages;
 use Core\Services\AuthService;
 use Core\Services\UserService;
 use Core\Lib\Http\JsonResponse;
@@ -36,7 +35,6 @@ class ProfileController extends Controller {
         $user = AuthService::currentUser();
         UserService::ensureAuthenticatedUser($user);
 
-        $profileImages = ProfileImages::findByUserId((int)$user->id);
         if($this->request->isPost()) {
             $this->request->csrfCheck();
             $uploads = AuthService::profileImageUpload($user);
@@ -51,7 +49,6 @@ class ProfileController extends Controller {
         $props = [
             'user' => $user,
             'errors' => $user->getErrorMessages(),
-            'profileImages' => $profileImages,
         ];
         $this->view->renderJsx('profile.Edit', $props);
     }
@@ -64,12 +61,8 @@ class ProfileController extends Controller {
     public function indexAction(): void {
         $user = AuthService::currentUser();
         UserService::ensureAuthenticatedUser($user);
-        $profileImages = ProfileImages::findByUserId((int)$user->id);
 
-        $this->view->props = [
-            'user' => $user, 
-            'profileImage' => $profileImages[0]
-        ];
+        $this->view->props = ['user' => $user];
         $this->view->renderJSX('profile.Index');
     }
 
