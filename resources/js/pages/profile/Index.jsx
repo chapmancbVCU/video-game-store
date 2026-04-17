@@ -41,12 +41,6 @@ function Index({ user, profileImage }) {
                             <th className="text-center">ACL</th>
                             <td className="text-center">{user.acl}</td>
                         </tr>
-                        <tr>
-                            <th className="text-center" colSpan={2}>
-                                {user.description ? 'Description' : 'No description'}
-                            </th>
-                            
-                        </tr>
                         {user.description && (
                             <tr>
                                 <td id="description" className="p-4" colSpan={2}>

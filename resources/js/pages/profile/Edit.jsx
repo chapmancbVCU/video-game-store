@@ -47,23 +47,6 @@ function Edit({user, errors, profileImages}) {
                         inputAttrs={{className: 'form-control input-sm', placeholder: 'joe@example.com'}}
                         divAttrs={{className: 'form-group mb-3'}}
                     />
-                    <Forms.RichText
-                        label="Description"
-                        name="description"
-                        value={user.description}
-                        inputAttrs={{ placeholder: 'Describe yourself here...' }}
-                        divAttrs={{ className: 'form-group mb-3' }}
-                    />
-
-                    <Forms.Input 
-                        type="file"
-                        label="Upload Profile Image (Optional)"
-                        name="profileImage"
-                        value=""
-                        inputAttrs={{className: 'form-control', accept: 'image/gif image/jpeg image/png'}}
-                        divAttrs={{className: 'form-group mb-3'}}
-                    />
-
                     <ProfileImageSorter initialImages={profileImages} deleteEndpoint="/profile/deleteImage" />
                     <div className="col-md-12 text-end">
                         <a href={route('profile')} className="btn btn-default">Cancel</a>
