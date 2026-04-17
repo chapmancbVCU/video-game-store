@@ -49,14 +49,6 @@ function Register({user, errors}) {
                         inputAttrs={{className: 'form-control input-sm', placeholder: 'joe@example.com'}}
                         divAttrs={{className: 'form-group mb-3'}}
                     />
-                    <Forms.Input 
-                        type="file"
-                        label="Upload Profile Image (Optional"
-                        name="profileImage"
-                        value=""
-                        inputAttrs={{className: 'form-control', accept: 'image/gif image/jpeg image/png'}}
-                        divAttrs={{className: 'form-group mb-3'}}
-                    />
                     <PasswordComplexityRequirements />
                     <Forms.Input 
                         type="password"
