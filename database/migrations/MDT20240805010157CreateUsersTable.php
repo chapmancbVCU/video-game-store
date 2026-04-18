@@ -26,6 +26,11 @@ class MDT20240805010157CreateUsersTable extends Migration {
             $table->integer('login_attempts')->default(0);
             $table->timestamps();
             $table->softDeletes();
+            $table->string('address_1', 255);
+            $table->string('address_2', 150);
+            $table->string('state', 50);
+            $table->string('zip', 10);
+            $table->string('country', 50);
 
             // Indexes
             $table->index('created_at');
