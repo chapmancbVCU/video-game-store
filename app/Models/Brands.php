@@ -14,10 +14,12 @@ class Brands extends Model {
     protected static $_table = 'brands';
 
     // Soft delete
-    // protected static $_softDelete = true;
+    protected static $_softDelete = true;
     
     // Fields from your database
-
+    public $deleted = 0;
+    public $id;
+    public $name;
 
     public function afterDelete(): void {
         // Implement your function
