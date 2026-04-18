@@ -50,6 +50,56 @@ function Register({user, errors}) {
                         inputAttrs={{className: 'form-control input-sm', placeholder: 'joe@example.com'}}
                         divAttrs={{className: 'form-group mb-3'}}
                     />
+                    <Forms.Input 
+                        type="text"
+                        label="Address 1"
+                        name="address_1"
+                        value={user.address_1}
+                        inputAttrs={{className: 'form-control input-sm'}}
+                        divAttrs={{className: 'form-group mb-3'}}
+                    />
+                    <Forms.Input 
+                        type="text"
+                        label="Address 2"
+                        name="address_2"
+                        value={user.address_2}
+                        inputAttrs={{className: 'form-control input-sm'}}
+                        divAttrs={{className: 'form-group mb-3'}}
+                    />
+                    <div className="d-flex">
+                        <Forms.Input 
+                            type="text"
+                            label="City"
+                            name="city"
+                            value={user.city}
+                            inputAttrs={{className: 'form-control input-sm'}}
+                            divAttrs={{className: 'form-group mb-3 me-3 col-md-4'}}
+                        />
+                        <Forms.Input 
+                            type="text"
+                            label="State"
+                            name="state"
+                            value={user.state}
+                            inputAttrs={{className: 'form-control input-sm'}}
+                            divAttrs={{className: 'form-group mb-3 me-3 col-md-3'}}
+                        />
+                        <Forms.Input 
+                            type="text"
+                            label="Zip"
+                            name="zip"
+                            value={user.zip}
+                            inputAttrs={{className: 'form-control input-sm'}}
+                            divAttrs={{className: 'form-group mb-3 col-md-2'}}
+                        />
+                    </div>
+                    <Forms.Input 
+                        type="text"
+                        label="Country"
+                        name="country"
+                        value={user.country}
+                        inputAttrs={{className: 'form-control input-sm'}}
+                        divAttrs={{className: 'form-group mb-3'}}
+                    />
                     <PasswordComplexityRequirements />
                     <Forms.Input 
                         type="password"
