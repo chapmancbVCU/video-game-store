@@ -19,7 +19,7 @@ class Products extends Model {
     // Fields from your database
     public $brand_id;
     public $created_at;
-    public $deleted;
+    public $deleted = 0;
     public $description;
     public $featured;
     public $id;
