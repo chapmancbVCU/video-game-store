@@ -32,6 +32,7 @@ class MDT20240805010157CreateUsersTable extends Migration {
             $table->string('city', 155);
             $table->string('zip', 10);
             $table->string('country', 50);
+            $table->integer('store_id');
 
             // Indexes
             $table->index('created_at');
