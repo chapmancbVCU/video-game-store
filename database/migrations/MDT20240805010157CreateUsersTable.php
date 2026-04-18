@@ -29,6 +29,7 @@ class MDT20240805010157CreateUsersTable extends Migration {
             $table->string('address_1', 255);
             $table->string('address_2', 150);
             $table->string('state', 50);
+            $table->string('city', 155);
             $table->string('zip', 10);
             $table->string('country', 50);
 
