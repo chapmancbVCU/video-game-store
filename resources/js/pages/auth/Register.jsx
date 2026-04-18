@@ -15,12 +15,13 @@ function Register({user, errors}) {
             <div className="col-md-6 bg-light p-3">
                 <h3 className="text-center">Register Here!</h3>
                 <hr />
+                <div className="mb-2">Required field (*)</div>
                 <form action="" className="form" method="post" encType="multipart/form-data">
                     <Forms.CSRFInput />
                     <Forms.DisplayErrors errors={errors}/>
                     <Forms.Input 
                         type="text"
-                        label="User name"
+                        label="User name *"
                         name="username"
                         value={user.username}
                         inputAttrs={{className: 'form-control input-sm'}}
@@ -28,7 +29,7 @@ function Register({user, errors}) {
                     />
                     <Forms.Input 
                         type="text"
-                        label="First Name"
+                        label="First Name *"
                         name="fname"
                         value={user.fname}
                         inputAttrs={{className: 'form-control input-sm'}}
@@ -36,14 +37,14 @@ function Register({user, errors}) {
                     />
                     <Forms.Input 
                         type="text"
-                        label="Last Name"
+                        label="Last Name *"
                         name="lname"
                         value={user.lname}
                         inputAttrs={{className: 'form-control input-sm'}}
                         divAttrs={{className: 'form-group mb-3'}}
                     />
                     <Forms.Email 
-                        label="Email"
+                        label="Email *"
                         name="email"
                         value={user.email}
                         inputAttrs={{className: 'form-control input-sm', placeholder: 'joe@example.com'}}
@@ -52,7 +53,7 @@ function Register({user, errors}) {
                     <PasswordComplexityRequirements />
                     <Forms.Input 
                         type="password"
-                        label="Password"
+                        label="Password *"
                         name="password"
                         value={user.password}
                         inputAttrs={{className: 'form-control input-sm'}}
@@ -60,7 +61,7 @@ function Register({user, errors}) {
                     />
                     <Forms.Input 
                         type="password"
-                        label="Confirm Password"
+                        label="Confirm Password *"
                         name="confirm"
                         value={user.confirm}
                         inputAttrs={{className: 'form-control input-sm'}}
