@@ -107,8 +107,8 @@ class AdmindashboardController extends Controller {
     public function detailsAction($id): void {
         $user = Users::findById((int)$id);
         DashboardService::checkIfCurrentUser($user);
-        $profileImage = ProfileImages::findCurrentProfileImage($user->id);
-        $this->view->profileImage = $profileImage;
+        //$profileImage = ProfileImages::findCurrentProfileImage($user->id);
+        //$this->view->profileImage = $profileImage;
         $this->view->user = $user;
         $this->view->render('admindashboard.details', true, true);
     }
@@ -158,7 +158,7 @@ class AdmindashboardController extends Controller {
         $userAcls = ACLService::aclToArray(json_decode($user->acl, true));
 
         $this->view->userAcls = Arr::map($userAcls, 'strval'); // Ensure values are strings
-        $profileImages = ProfileImages::findByUserId($user->id);
+        //$profileImages = ProfileImages::findByUserId($user->id);
     
         if ($this->request->isPost()) {
             $this->request->csrfCheck();
@@ -168,12 +168,12 @@ class AdmindashboardController extends Controller {
             ACLService::updateUserACLs($user, $userAcls, $acls, $_POST['acls']);
             
             if ($user->save()) {
-                ProfileImages::updateSortByUserId($user->id, json_decode($_POST['images_sorted']));
+                //ProfileImages::updateSortByUserId($user->id, json_decode($_POST['images_sorted']));
                 redirect('admindashboard.details', [$user->id]);
             }
         }
     
-        $this->view->profileImages = $profileImages;
+        //$this->view->profileImages = $profileImages;
         $this->view->displayErrors = $user->getErrorMessages();
         $this->view->postAction = route('admindashboard.edit', [$user->id]);
         $this->view->render('admindashboard.edit', true, true);
