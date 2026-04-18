@@ -25,9 +25,13 @@ class Users extends Model {
     use PasswordPolicy;
     use HasTimestamps;
     public $acl;
+    public $address_1;
+    public $address_2;
     public const blackListedFormKeys = ['id','deleted'];
     private $changePassword = false;
+    public $city;
     public $confirm;
+    public $country;
     public static $currentLoggedInUser = null;
     public $deleted = 0;                // Set default value for db field.
     public $description;
@@ -40,8 +44,11 @@ class Users extends Model {
     public $reset_password = 0;
     public $password;
     protected static $_softDelete = true;
+    public $state;
+    public $store_id;
     protected static $_table = 'users';
     public $username;
+    public $zip;
 
     /**
      * Implements beforeSave function described in Model parent class.  
