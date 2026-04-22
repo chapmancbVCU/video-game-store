@@ -1,6 +1,4 @@
 import React from "react";
-import SafeHtml from '@chappy/components/SafeHtml.jsx';
-import asset from '@chappy/utils/asset'
 import route from "@chappy/utils/route";
 import documentTitle from "@chappy/utils/documentTitle";
 
@@ -34,13 +32,6 @@ function Index({ user }) {
                             <th className="text-center">ACL</th>
                             <td className="text-center">{user.acl}</td>
                         </tr>
-                        {user.description && (
-                            <tr>
-                                <td id="description" className="p-4" colSpan={2}>
-                                    <SafeHtml html={user.description} decode className="prose"/>
-                                </td>
-                            </tr>
-                        )}
                     </tbody>
                 </table>
                 <div className="mb-5 d-flex justify-content-around">
