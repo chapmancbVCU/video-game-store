@@ -2,7 +2,7 @@
 use Core\Router;
 use Core\Helper;
 $profileImage = Helper::getProfileImage();
-$menu = Router::getMenu('storeadmin_menu_acl');
+$menu = Router::getMenu('store_admin_menu_acl');
 $userMenu = Router::getMenu('user_menu');
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient sticky-top mb-5">
