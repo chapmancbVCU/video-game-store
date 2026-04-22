@@ -15,5 +15,9 @@
     "Admin" : {
         "denied" : {},
         "Admindashboard" : ["*"]
+    },
+    "StoreAdmin" : {
+        "denied" : {},
+        "StoreAdmin" : ["*"]
     }
 }
