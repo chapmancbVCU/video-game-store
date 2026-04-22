@@ -27,6 +27,8 @@ class MDT20260418215821CreateProductsTable extends Migration {
             $table->index('featured');
             $table->integer('brand_id');
             $table->index('brand_id');
+            $table->integer('type_id');
+            $table->index('type_id');
         });
     }
 
