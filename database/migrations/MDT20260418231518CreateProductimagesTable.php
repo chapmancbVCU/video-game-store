@@ -32,6 +32,6 @@ class MDT20260418231518CreateProductimagesTable extends Migration {
      * @return void
      */
     public function down(): void {
-        Schema::dropIfExists('productimages');
+        Schema::dropIfExists('product_images');
     }
 }
