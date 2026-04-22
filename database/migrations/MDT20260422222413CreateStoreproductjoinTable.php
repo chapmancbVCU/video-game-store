@@ -16,7 +16,11 @@ class MDT20260422222413CreateStoreproductjoinTable extends Migration {
     public function up(): void {
         Schema::create('store_product_join', function (Blueprint $table) {
             $table->id();
-
+            $table->integer('store_id');
+            $table->index('store_id');
+            $table->integer('product_id');
+            $table->index('product_id');
+            $table->integer('quantity');
         });
     }
 
