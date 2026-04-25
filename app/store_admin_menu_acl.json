@@ -1,4 +1,4 @@
 {
     "Home" : "home",
-    "StoreAdmin" : "addProduct"     
+    "StoreAdmin" : "storeAdmin/addProduct"     
 }      
